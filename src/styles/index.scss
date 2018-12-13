@@ -1,0 +1,107 @@
+@import './element-ui';
+@import './transition';
+
+.app-main {
+  /*隐藏滚动条，当IE下溢出，仍然可以滚动*/
+  -ms-overflow-style:none;
+  /*火狐下隐藏滚动条*/
+  overflow:-moz-scrollbars-none;
+}
+/*Chrome下隐藏滚动条，溢出可以透明滚动*/
+.app-main::-webkit-scrollbar{width:0px}
+
+body {
+  height: 100%;
+  margin: 0;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+div {
+  box-sizing: border-box !important;
+}
+.app-main {
+  position: absolute;
+  top: 100px;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  // width: 100%;
+  overflow-y: scroll;
+}
+.hideSidebar .app-main {
+  left: 250px;
+  transition: all 0.4s ease;
+}
+// 换肤功能，黑色背景
+.isdark {
+  .menubar{
+    background: rgb(44,62,80) !important;
+    //菜单按钮
+    .menu-icon {
+      span {
+        color: #fff;
+      }
+      span.active {
+        color:rgb(59,167,118) !important;
+      }
+    }
+    //面包屑
+    a.router-link-active {
+      color:rgb(59,167,118);
+    }
+    .no-redirect {
+      color: #fff !important;
+    }
+  }
+  // 主体界面背景
+  .app-main {
+    background: rgb(59,68,87) !important;
+  }
+  .footbar {
+    background: rgb(59,167,118) !important;
+  }
+}
+
+
+
+
+// 根据分辨率适配
+
+@media screen and (max-width: 900px) {
+  .login-form {
+    width: 80% !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  // 登录注册页面
+  .login-form {
+    width: 80% !important;
+  }
+  // 侧边栏
+  .sidebar-container, .menubar .menu{
+    display: none;
+    // width: 80px !important;
+  }
+  // 顶部导航
+  .nav-container .left-title{
+    img.rengu-logo {
+      width: 30px;
+      height: 30px;
+    }
+    i {
+      font-size: 14px;
+    }
+  }
+  // 目录导航
+  div.menubar{
+    padding: 0 10px !important;
+  }
+  // 底部
+  .footbar-left {
+    .wrapper {
+      display: inline-block !important;
+    }
+  }
+}

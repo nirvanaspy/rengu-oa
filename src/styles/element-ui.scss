@@ -1,0 +1,66 @@
+.login-form .el-input__inner {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.el-breadcrumb {
+  line-height: 40px !important;
+}
+
+.el-dropdown-menu a {
+  text-decoration: none;
+}
+.el-breadcrumb__inner a.router-link-active{
+  color: #fff;
+}
+
+.nav-container .dialog-cont .el-dialog__wrapper {
+  top: 60px;
+  bottom: 30px;
+  .el-dialog  {
+    margin: 0!important;
+    height: 100%;
+  }
+}
+.usermanageCont {
+  .el-tabs__item.is-active {
+    background-color: rgb(231,76,60) !important;
+    color: #fff !important;
+  }
+
+  .el-tabs__nav-scroll {
+    border-bottom: 4px solid rgb(231,76,60)
+  }
+}
+
+//弹框样式(golobal)
+.el-dialog__header {
+  padding: 10px 20px!important;
+  .el-dialog__headerbtn {
+    top: 13px;
+  }
+}
+
+.createDialog {
+  .el-dialog__header {
+    background: rgb(92,184,92) !important;
+    .el-dialog__title {
+      color: #fff;
+    }
+    .el-icon-close {
+      color: #fff;
+    }
+  }
+}
+
+.editDialog {
+  .el-dialog__header {
+    background: rgb(240,173,48) !important;
+    .el-dialog__title {
+      color: #fff;
+    }
+    .el-icon-close {
+      color: #fff;
+    }
+  }
+}
