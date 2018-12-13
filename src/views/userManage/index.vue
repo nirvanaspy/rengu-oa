@@ -651,6 +651,7 @@
             background: #fff;
             padding: 0 18px 18px 0;
         }
+
         .role-icon {
             display: block;
             width: 100%;
