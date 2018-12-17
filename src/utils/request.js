@@ -7,7 +7,7 @@ let serviceConfig
 if(ip && port) {
     serviceConfig = 'http://' + ip + ':' + port
 } else {
-    serviceConfig = 'http://127.168.31.134:8080'
+    serviceConfig = 'http://192.168.31.134:8080'
 }
 
 const service = axios.create({

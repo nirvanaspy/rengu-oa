@@ -97,7 +97,7 @@
 
     /*eslint-disable*/
     export default {
-        name: 'login',
+        name: 'register',
         data() {
             const validateUsername = (rule, value, callback) => {
                 if (!isvalidUsername(value)) {

@@ -8,3 +8,13 @@ export function addUser(data) {
         data
     })
 }
+
+export function testEmail(email) {
+    return request({
+        url: 'SUGAR-USER-API/user/has-email',
+        method: 'get',
+        params: {
+            email: email
+        }
+    })
+}

@@ -1,6 +1,7 @@
 const getters = {
     sidebar: state => state.app.sidebar,
     currentMode: state => state.app.currentMode,
+    lockScreen: state => state.app.lockScreen,
     token: state => state.user.token,
     name: state => state.user.name,
     status: state => state.user.status,

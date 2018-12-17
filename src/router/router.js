@@ -13,7 +13,7 @@ export const constantRouterMap = [
         path: '/login', component: _import('login/index'), hidden: true
     },
     {
-        path: '/register', component: _import('register/index'), hidden: true
+        path: '/register', component: _import('register/register'), hidden: true
     },
     {
         path: '/lockScreen', component: _import('lockScreen/index'), hidden: true

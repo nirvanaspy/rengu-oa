@@ -104,3 +104,12 @@
   }
 
 }
+
+.lockScreen {
+  .el-input input.el-input__inner{
+    background: rgba(0,0,0,0.3);
+    border: rgb(119,119,119);
+    color: #777;
+    padding-right: 30px;
+  }
+}

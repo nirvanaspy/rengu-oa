@@ -245,7 +245,6 @@
                 return !this.$store.getters.sidebar.opened
             },
             username() {
-                console.log(this.$store.getters)
                 return this.$store.getters.name
             },
             genenrateAvatar() {
@@ -254,7 +253,7 @@
                         foreground: [210, 82, 91, 255],               // 前景色
                         background: [255, 255, 255, 0],         // 背景色
                         margin: 0.2,                              // 20% margin
-                        size: 40,                                // 420px square
+                        size: 40,                                // 40px square
                         format: 'svg'                             // use SVG instead of PNG
                     }
                     let data = new Identicon(hash, options).toString()
