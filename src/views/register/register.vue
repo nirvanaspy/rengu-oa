@@ -85,6 +85,7 @@
         .steps-container {
             margin-top: 40px;
         }
+
         .pane-container {
             height: 400px;
             width: 500px;
