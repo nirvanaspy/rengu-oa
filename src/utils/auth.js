@@ -17,3 +17,9 @@ export function setRefreshToken(token) {
 export function removeToken() {
     return Cookies.remove(TokenKey)
 }
+export function setUserId(id) {
+    return Cookies.set('userId', id)
+}
+export function removeUserId() {
+    return Cookies.remove('userId')
+}

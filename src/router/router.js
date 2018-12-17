@@ -16,6 +16,9 @@ export const constantRouterMap = [
         path: '/register', component: _import('register/index'), hidden: true
     },
     {
+        path: '/lockScreen', component: _import('lockScreen/index'), hidden: true
+    },
+    {
         path:'/',
         component: Layout,
         redirect: 'home',
@@ -29,26 +32,12 @@ export const constantRouterMap = [
                 icon: 'form'
             }
         }]
-    },
-    {
-        path:'',
-        component: Layout,
-        children: [{
-            path: 'usermanage',
-            name: 'usermanange',
-            component: _import('userManage/index'),
-            // component: () => import('../views/About.vue'),
-            meta: {
-                title: '用户管理',
-                icon: 'peoples'
-            }
-        }]
     }
 ]
 
 //权限动态路由表
 export const asyncRouterMap = [
-    {
+    /*{
         path:'',
         component: Layout,
         meta: {
@@ -65,7 +54,24 @@ export const asyncRouterMap = [
                 roles: ['admin']
             }
         }]
-    },
+    },*/
+    {
+        path:'',
+        component: Layout,
+        meta: {
+          roles: ['admin']
+        },
+        children: [{
+            path: 'usermanage',
+            name: 'usermanange',
+            component: _import('userManage/index'),
+            // component: () => import('../views/About.vue'),
+            meta: {
+                title: '用户管理',
+                icon: 'peoples'
+            }
+        }]
+    }
 ]
 
 export default new Router({

@@ -1,5 +1,6 @@
 <template>
     <div class="login-container">
+        <linecanvas></linecanvas>
         <div class="content">
             <div class="logo">
         <span class="svg-container">
@@ -17,7 +18,6 @@
             </span>
                         <el-input name="ipConfig" type="text" v-model="loginForm.ipConfig" autoComplete="on" placeholder="IP地址" />
                     </el-form-item>
-                    <!--<span class="colon">:</span>-->
                     <el-form-item prop="port" class="portform">
             <span class="svg-container">
               <svg-icon icon-class="port" />
@@ -56,8 +56,12 @@
     import { loginByUsername } from '@/api/login';
     import { isvalidUsername } from '@/utils/validate'
     import service from '@/utils/request'
+    import linecanvas from '../../components/Canvas_line/index.vue'
     export default {
         name: 'login',
+        components: {
+          linecanvas
+        },
         data() {
             const validateUsername = (rule, value, callback) => {
                 if (!isvalidUsername(value)) {
@@ -142,6 +146,17 @@
             }
         },
         created() {
+            if(this.$cookies.get('username')) {
+                this.loginForm.username = this.$cookies.get('username')
+            }
+            if(this.$cookies.get('ip')) {
+                this.loginForm.ipConfig = this.$cookies.get('ip')
+            }
+            if(this.$cookies.get('port')) {
+                this.loginForm.port = this.$cookies.get('port')
+            }
+        },
+        mounted() {
         },
         destroyed() {
         }
@@ -177,6 +192,7 @@
         background-color: #fff;
         border:1px solid #ccc;
         border-radius:8px;
+        box-shadow: 0 6px 8px rgba(26, 26, 26, 0.2);
     }
     .login-form input.el-input__inner {
         padding-left: 30px !important;

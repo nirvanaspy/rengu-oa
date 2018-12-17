@@ -1,6 +1,6 @@
 <template>
     <div class="canvas_cont">
-        <canvas height="800px" width="800px" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;background: #000" id="c_n1"></canvas>
+        <canvas height="800px" width="800px" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;" id="c_n1"></canvas>
     </div>
 </template>
 
@@ -40,6 +40,10 @@
                 function j(i) {
                     return document.getElementsByTagName(i)
                     // return document.getElementsByClassName(i)
+                }
+
+                function returnTarget(i) {
+                    return document.getElementsByClassName(i)
                 }
 
                 function l() {
@@ -91,7 +95,7 @@
                     };
                 u.id = c;
                 u.style.cssText = "position:fixed;top:0;left:0;z-index:" + s.z + ";opacity:" + s.o;
-                j("div")[0].appendChild(u);
+                returnTarget("login-container")[0].appendChild(u);
                 k(), window.onresize = k;
                 window.onmousemove = function(i) {
                     i = i || window.event, f.x = i.clientX, f.y = i.clientY

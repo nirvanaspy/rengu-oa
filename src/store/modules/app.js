@@ -7,6 +7,9 @@ const app = {
         },
         currentMode: {
             isdark: !+Cookies.get('nowMode')
+        },
+        lockScreen: {
+            isLock: !+Cookies.get('isLock')
         }
     },
     mutations: {
@@ -25,7 +28,15 @@ const app = {
                 Cookies.set('nowMode', 0)
             }
             state.currentMode.isdark = !state.currentMode.isdark
-        }
+        },
+        TOGGLE_LOCK: state => {
+            if (state.lockScreen.isLock) {
+                Cookies.set('isLock', 1)
+            } else {
+                Cookies.set('isLock', 0)
+            }
+            state.lockScreen.isLock = !state.lockScreen.isLock
+        },
     },
     actions: {
         toggleSideBar({ commit }) {
@@ -33,6 +44,9 @@ const app = {
         },
         toggleMode({ commit }) {
             commit('TOGGLE_MODE')
+        },
+        toggleLock({ commit }) {
+            commit('TOGGLE_LOCK')
         }
     }
 }

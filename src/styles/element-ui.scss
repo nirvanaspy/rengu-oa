@@ -64,3 +64,43 @@
     }
   }
 }
+
+.personInfoDialog {
+  .el-form-item__content {
+    line-height: 30px;
+  }
+  .el-form-item {
+    margin-bottom: 8px !important;
+  }
+  .el-form-item__label {
+    line-height: 30px;
+  }
+  .el-input, .el-form-item__content {
+    height: 30px;
+  }
+  input.el-input__inner {
+    height: 30px;
+  }
+  .el-dialog__body {
+    text-align: left;
+  }
+  .el-dialog__footer {
+    padding: 0px 20px 10px;
+  }
+}
+
+.info-body {
+  .el-loading-spinner .circular {
+    display: none;
+  }
+  .el-loading-spinner {
+    background: url(../icons/svg/Pacman-1s-200px.gif) no-repeat;
+    background-size: 120px 120px;
+    background-position:center ;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    margin-top: 0;
+  }
+
+}

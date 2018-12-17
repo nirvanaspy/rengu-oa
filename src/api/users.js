@@ -7,6 +7,13 @@ export function getUsers() {
     })
 }
 
+export function getUser(id) {
+    return request({
+        url: 'SUGAR-USER-API/user/' + id,
+        method: 'get',
+    })
+}
+
 export function deleteUser(id) {
     return request({
         url: 'SUGAR-USER-API/user/' + id,
@@ -21,3 +28,12 @@ export function modifyUser(id, data) {
         data: data
     })
 }
+
+export function modifyPass(id, data) {
+    return request({
+        url: 'SUGAR-USER-API/user/' + id + '/password',
+        method: 'put',
+        data: data
+    })
+}
+

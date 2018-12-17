@@ -250,7 +250,6 @@
             this.getRolesList()
         },
         mounted() {
-          console.log(this.nowTabs)
         },
         methods: {
             getUserList() {
@@ -396,7 +395,7 @@
                 }
                 let datapost = qs.stringify(data)
                 modifyUser(this.userInfo.id, datapost).then((res) => {
-
+                    this.getUserList()
                 }).catch(() => {
                     this.$notify({
                         title: '失败',
@@ -491,7 +490,6 @@
         },
         watch: {
             listenNowTabs: function () {
-                console.log(this.nowTabs);
             }
         }
     }

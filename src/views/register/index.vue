@@ -13,19 +13,25 @@
             <el-form class="login-form" autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm"
                      label-position="left">
                 <div class="ipContainer">
-                    <el-form-item prop="ipConfig" class="ipform">
-                        <span class="svg-container svg-container_ip">
-                            <svg-icon icon-class="IP"/>
-                        </span>
-                        <el-input name="ipConfig" type="text" v-model="loginForm.ipConfig" autoComplete="on"
-                                  placeholder="IP地址"/>
-                    </el-form-item>
-                    <el-form-item prop="port" class="portform">
-                        <span class="svg-container">
-                            <svg-icon icon-class="port"/>
-                        </span>
-                        <el-input name="port" type="text" v-model="loginForm.port" autoComplete="on" placeholder="端口号"/>
-                    </el-form-item>
+                    <el-row>
+                        <el-col :span="12">
+                            <el-form-item prop="ipConfig" class="ipform">
+                                <span class="svg-container svg-container_ip">
+                                    <svg-icon icon-class="IP"/>
+                                </span>
+                                <el-input name="ipConfig" type="text" v-model="loginForm.ipConfig" autoComplete="on"
+                                          placeholder="IP地址"/>
+                            </el-form-item>
+                        </el-col>
+                        <el-col :span="11"  :offset="1">
+                            <el-form-item prop="port" class="portform">
+                                <span class="svg-container">
+                                    <svg-icon icon-class="port"/>
+                                </span>
+                                <el-input name="port" type="text" v-model="loginForm.port" autoComplete="on" placeholder="端口号"/>
+                            </el-form-item>
+                        </el-col>
+                    </el-row>
                 </div>
                 <div class="personalMes">
                     <el-form-item prop="mailConfig" class="ipform">
@@ -174,7 +180,6 @@
                                 duration: 2000
                             })
                             this.loading = false
-                            // this.$router.replace('/login')
                             let formData = qs.stringify({
                                 "username": this.loginForm.username,
                                 'password': this.loginForm.password,
@@ -185,13 +190,8 @@
                                 'client_id': 'OAUTH_CLIENT_ID',
                                 'enctype': 'OAUTH_CLIENT_ID'
                             })
-                            // this.jumpLoading = true
                             this.$store.dispatch('LoginByUsername', formData).then(() => {
-                                // this.jumpLoading = false
                                 this.loading = false
-                                /*getUserId().then((res) => {
-                                  this.setCookie('userId', res.data.data.id)
-                                })*/
                                 this.$router.push({path: '/'})
                             }).catch(() => {
                                 this.loading = false
@@ -256,6 +256,7 @@
         background-color: #fff;
         border: 1px solid #ccc;
         border-radius: 8px;
+        box-shadow: 0 6px 8px rgba(26, 26, 26, 0.2);
     }
 
     .title-container {
