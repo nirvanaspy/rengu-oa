@@ -101,7 +101,6 @@
 
 <script>
     import { addUser, testEmail, activeUser } from '../../api/register';
-
     export default {
         name: "register",
         data() {
