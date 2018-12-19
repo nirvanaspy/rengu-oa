@@ -259,7 +259,7 @@
             },
             getRolesList() {
                 getRoles().then((res) => {
-                    this.roleList = res.data
+                    this.roleList = res.data.data
                 })
             },
             handlAddUser() {

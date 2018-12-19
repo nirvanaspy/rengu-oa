@@ -113,3 +113,41 @@
     padding-right: 30px;
   }
 }
+
+.register-container {
+  .el-step__icon {
+    top: -20px;
+    background: none;
+    color: #fff;
+  }
+  .el-step__title.is-process {
+    color: rgb(0, 164, 239);
+  }
+  .el-step__title.is-wait {
+
+  }
+  .el-step__head.is-process .el-step__icon{
+    color: rgb(0, 164, 239);
+  }
+  .el-input input.el-input__inner{
+    background: rgba(0,0,0,0.3);
+    border: rgb(119,119,119);
+    color: #ccc;
+    padding-right: 30px;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #777; opacity:1;
+  }
+
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #777;opacity:1;
+  }
+
+  input:-ms-input-placeholder{
+    color: #777;opacity:1;
+  }
+
+  input::-webkit-input-placeholder{
+    color: #777;opacity:1;
+  }
+}

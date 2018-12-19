@@ -18,3 +18,16 @@ export function testEmail(email) {
         }
     })
 }
+
+
+export function activeUser(code, mailAddress) {
+    return request({
+        url: 'SUGAR-USER-API/user/activeCode/' + code,
+        method: 'get',
+        params: {
+            email: mailAddress
+        }
+    })
+}
+
+

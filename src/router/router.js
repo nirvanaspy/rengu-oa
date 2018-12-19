@@ -19,6 +19,9 @@ export const constantRouterMap = [
         path: '/lockScreen', component: _import('lockScreen/index'), hidden: true
     },
     {
+        path: '/active/id', component: _import('activeAccount/index'), hidden: true
+    },
+    {
         path:'/',
         component: Layout,
         redirect: 'home',
