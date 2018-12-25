@@ -77,7 +77,6 @@
         },
         created() {
             this.myRoutes = this.permission_routers
-            // console.log(this.myRoutes)
         }
     }
 </script>
@@ -134,6 +133,7 @@
             a {
                 display: inline-block;
                 width: 100%;
+                height: 100%;
                 text-decoration: none;
                 color: #fff;
                 font-size: 14px;
@@ -143,6 +143,10 @@
         li.router-item:hover {
             // background: #eee;
             background: rgb(231,76,60);
+        }
+        .router-link-active{
+            // background: rgb(231,76,60);
+            color: #3da8f5 !important;
         }
     }
     .sidebar-container::before {

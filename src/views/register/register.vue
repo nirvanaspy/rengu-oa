@@ -13,6 +13,11 @@
             </el-steps>
         </div>
         <div class="pane-container">
+            <span class="back-icon" @click="backToLogin">
+                <el-tooltip content="前往登录" placement="top">
+                    <svg-icon icon-class="loginout"></svg-icon>
+                </el-tooltip>
+            </span>
             <div class="step-pane" v-if="activeStep === 0">
                 <div class="company-cont">
                     <div class="logo">
@@ -106,7 +111,7 @@
         name: "register",
         data() {
             return {
-                activeStep: 3,
+                activeStep: 0,
                 emailAddress: '',
                 activeCode: '',
                 loginForm: {
@@ -121,6 +126,9 @@
             }
         },
         methods: {
+            backToLogin() {
+                this.$router.push('./login')
+            },
             previousStep() {
                 if(this.activeStep === 0) {
                     this.activeStep = 0
@@ -203,6 +211,14 @@
             background: rgba(255,255,255,0.3);
             border-radius: 10px;
             position: relative;
+            .back-icon {
+                position: absolute;
+                top: 4px;
+                right: 8px;
+                color: #f5f5f5;
+                font-size: 20px;
+                cursor: pointer;
+            }
             .company-cont {
                 text-align: left;
                 height: 30px;

@@ -482,7 +482,6 @@
                     let src = 'data:image/svg+xml;base64,' + data
                     return src
                 }
-
             },
             listenNowTabs() {
                 return this.nowTabs

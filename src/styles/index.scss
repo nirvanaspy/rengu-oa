@@ -104,4 +104,21 @@ div {
       display: inline-block !important;
     }
   }
+  .hideSidebar .app-main {
+    left: 0 !important;
+    transition: all 0.4s ease;
+  }
+  .el-dialog {
+    width: 100% !important;
+  }
 }
+
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+  &:hover {
+    color: rgb(32, 160, 255);
+  }
+}
+

@@ -169,6 +169,7 @@
         height: 100%;
         width: 100%;
         background-color: #f9f9f9;
+        // background: url("../register/back-1.jpg");
     }
     .login-container .content{
         margin:40px auto;

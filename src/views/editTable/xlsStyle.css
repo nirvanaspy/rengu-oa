@@ -1,0 +1,113 @@
+.radio-label {
+    font-size: 14px;
+    color: #606266;
+    line-height: 40px;
+    padding: 0 12px 0 30px;
+}
+.export-btns {
+    float: left;
+}
+.xls-container {
+    padding: 20px;
+}
+
+.xls-header .title {
+    display: inline-block;
+    height: 30px;
+    line-height: 38px;
+    font-size: 18px;
+    border-bottom: 1px solid #000;
+}
+
+.logo {
+    display: inline-block;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 8px;
+}
+
+.xls-info {
+    display: flex;
+    padding: 6px 10px 16px;
+}
+
+.xls-info-item {
+    flex: 1;
+    display: inline-block;
+    color: #777;
+    font-size: 14px;
+    margin-right: 20px;
+    text-align: left;
+}
+
+.xls-info-item.item-date {
+    text-align: center;
+}
+
+.xls-info-item.item-user {
+    text-align: right;
+}
+
+.xls-table td {
+    min-height: 48px !important;
+}
+.xls-table tr {
+    height: 48px;
+}
+
+.el-date-editor {
+    width: unset;
+}
+
+.myTable {
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid rgb(235, 238, 245);
+    border-top: none;
+    box-sizing: border-box;
+}
+.myTable tr {
+    box-sizing: border-box;
+    border-top: none;
+}
+
+.myTable tr:nth-child(1) {
+    border-top: none;
+}
+.myTable td:nth-child(1) {
+    box-sizing: border-box;
+    width: 200px;
+}
+.myTable tr.sign{
+    height: 100px;
+}
+
+.myTable td {
+    border-top: none;
+    border-right: none;
+    box-sizing: border-box;
+    height: 48px;
+    color: #606266;
+    font-size: 14px;
+}
+.note {
+    position: relative;
+}
+.note .title {
+    position: absolute;
+    left: 0;
+    font-size: 14px;
+}
+.note ul {
+    list-style: none;
+}
+.note li {
+    font-size: 14px;
+    text-align: left;
+    color: #606266;
+}

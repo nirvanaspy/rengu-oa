@@ -7,6 +7,10 @@ import './icons'
 import './permission'
 import Cookies from 'js-cookie'
 
+//导出pdf
+import htmlToPdf from '@/utils/htmlToPdf'
+Vue.use(htmlToPdf)
+
 Vue.prototype.$cookies = Cookies
 
 import App from './App.vue'

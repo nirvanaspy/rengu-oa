@@ -18,9 +18,9 @@ export const constantRouterMap = [
     {
         path: '/lockScreen', component: _import('lockScreen/index'), hidden: true
     },
-    {
-        path: '/active/id', component: _import('activeAccount/index'), hidden: true
-    },
+    /*{
+        path: '/editTable', component: _import('editTable/index'), hidden: true
+    },*/
     {
         path:'/',
         component: Layout,
@@ -32,6 +32,47 @@ export const constantRouterMap = [
             // component: () => import('../views/About.vue'),
             meta: {
                 title: '首页',
+                icon: 'form'
+            }
+        }]
+    },
+    {
+        path:'/',
+        component: Layout,
+        children: [{
+            path: 'department',
+            name: 'department',
+            component: _import('departMent/index'),
+            // component: () => import('../views/About.vue'),
+            meta: {
+                title: '部门管理',
+                icon: 'form'
+            }
+        }]
+    },
+    {
+        path:'/',
+        component: Layout,
+        children: [{
+            path: 'editTable/:id',
+            name: 'editTable',
+            component: _import('editTable/index'),
+            // component: () => import('../views/About.vue'),
+            meta: {
+                title: '报销单详情',
+                icon: 'form'
+            }
+        }]
+    },{
+        path:'/',
+        component: Layout,
+        children: [{
+            path: 'expenseFormManage',
+            name: 'expenseFormManage',
+            component: _import('expenseFormManage/index'),
+            // component: () => import('../views/About.vue'),
+            meta: {
+                title: '报销单管理',
                 icon: 'form'
             }
         }]
@@ -100,12 +141,12 @@ export default new Router({
         {
             path: '/login',
             name: 'login',
-            component: () => import('../views/login/index.vue')
+            component: () => import('../views/login/index-back.vue')
         },
         {
             path: '/register',
             name: 'register',
-            component: () => import('../views/register/index.vue')
+            component: () => import('../views/register/index-back.vue')
         }
     ]*/
     scrollBehavior: () => ({ y: 0 }),

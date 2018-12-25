@@ -87,12 +87,6 @@ const user = {
         },*/
         GetUserInfo({commit, state}) {
             return new Promise((resolve, reject) => {
-                /*getUserInfo(state.token).then(response => {
-
-                }).catch(error => {
-                  console.log('getuserinfoerror')
-                  reject(error)
-                })*/
                 if (!state.token) {
                     reject('error')
                     console.log('hasNoToken')
@@ -107,7 +101,6 @@ const user = {
                 rolesset.forEach((item) => {
                     roleArr.push(item.substring(5))
                 })
-                console.log(roleArr)
                 commit('SET_ROLES', roleArr)
                 /*if(rolesset.indexOf('ROLE_admin') >= 0) {
                     console.log(1)
