@@ -18,7 +18,9 @@
                         </div>
                     </div>
                     <div class="department-info">
-                        <div class="department-avatar"></div>
+                        <div class="department-avatar">
+                            <svg-icon icon-class="department"></svg-icon>
+                        </div>
                         <div class="info-detail">
                             <span>部门人数:{{computeMemberNum(item.userEntities)}}</span>
                             <span>部门经理:{{item.leaderName}}</span>
@@ -30,6 +32,9 @@
                                 <img :src="genenrateAvatar(member.id)" alt="">
                             </span>
                             <span class="name">{{member.username}}</span>
+                            <span class="member-delete" @click="handleDeleteMember(member)">
+                                <svg-icon icon-class="delete"></svg-icon>
+                            </span>
                         </div>
                     </div>
                 </el-card>
@@ -50,7 +55,7 @@
                 <el-form-item label="部门名">
                     <el-input v-model="createDpInfo.name"></el-input>
                 </el-form-item>
-                <el-form-item label="选择领导">
+                <el-form-item label="部门领导">
                     <el-select v-model="selectedLeaderId" placeholder="请选择" style="width: 100%;">
                         <el-option
                                 v-for="item in userList"
@@ -74,7 +79,7 @@
                 <el-form-item label="部门名">
                     <el-input v-model="depaInfo.name"></el-input>
                 </el-form-item>
-                <el-form-item label="选择领导">
+                <el-form-item label="部门领导">
                     <el-select v-model="depaInfo.leaderName" placeholder="请选择" style="width: 100%;">
                         <el-option
                                 v-for="item in userList"
@@ -140,7 +145,23 @@
                 ],
                 userList: [],
                 departmentList: [
-                    {name: '民品部'},
+                    {
+                        name: '民品部',
+                        userEntities: [
+                            {
+                                username: '张三',
+                                id: 'assadasddswwwwe'
+                            },
+                            {
+                                username: '张三',
+                                id: 'assadasddswwwwe'
+                            },
+                            {
+                                username: '张三',
+                                id: 'assadasddswwwwe'
+                            }
+                        ]
+                    },
                     {name: '民品部'},
                     {name: '民品部'},
                     {name: '民品部'}
@@ -154,7 +175,8 @@
                 },
                 selectedLeaderId: '',
                 selectedDepaId: '',
-                selectedMembers: []
+                selectedMembers: [],
+                selectedMemberId: ''
             }
         },
         created() {
@@ -244,6 +266,21 @@
                 addDepaMembers(this.selectedDepaId, datapost).then(() => {
 
                 })
+            },
+            handleDeleteMember(member) {
+                this.selectedMemberId = member.id
+                this.$confirm('确认删除'+ member.username + '吗？', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    })
+                })
             }
         },
         computed: {
@@ -309,10 +346,27 @@
         .department-info {
             height: 120px;
             background: rgb(76,174,76);
+            padding: 10px 0;
+            .department-avatar {
+                width: 60px;
+                height: 60px;
+                line-height: 70px;
+                border-radius: 50%;
+                // background: rgb(18,150,219);
+                background: #fff;
+                margin: 0 auto 10px;
+                svg{
+                    font-size: 40px;
+                }
+            }
+            .info-detail {
+                color: #fff;
+                font-size: 12px;
+                span {
+                    display: block;
+                }
+            }
         }
-    }
-    .department-info {
-
     }
     .department-members {
         background:rgb(249,249,249);
@@ -332,6 +386,9 @@
             margin-bottom: 10px;
             padding: 0 20px;
             cursor: pointer;
+            &:hover, &:focus {
+                background: #f5f5e5;
+            }
             .avatar {
                 display: inline-block;
                 width: 30px;
@@ -343,6 +400,13 @@
                 display: inline-block;
                 vertical-align: top;
                 margin-left: 20px;
+                font-size: 14px;
+                color: #333;
+            }
+            .member-delete {
+                float: right;
+                color: rgb(231,76,60);
+                cursor: pointer;
             }
         }
     }

@@ -43,7 +43,10 @@ img {
     margin-right: 20px;
     text-align: left;
 }
-
+.xls-info-item input {
+    border: none;
+    border-bottom: 1px solid #000;
+}
 .xls-info-item.item-date {
     text-align: center;
 }
@@ -51,12 +54,38 @@ img {
 .xls-info-item.item-user {
     text-align: right;
 }
-
+#xlsCont {
+    box-sizing: border-box;
+    width: 100% !important;
+}
+.xls-table table {
+    width: 100% !important;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 1px solid rgb(235, 238, 245);
+    border-right: none;
+    border-bottom: none;
+    box-sizing: border-box;
+}
+.xls-table th {
+    border-right: 1px solid rgb(235, 238, 245);
+    box-sizing: border-box;
+}
+.xls-table th .cell {
+    padding: 0;
+    box-sizing: border-box;
+}
 .xls-table td {
+    padding: 0;
+    border-right: 1px solid rgb(235, 238, 245);
+    border-bottom: 1px solid rgb(235, 238, 245);
     min-height: 48px !important;
+    text-align: center;
+    box-sizing: border-box;
 }
 .xls-table tr {
     height: 48px;
+    box-sizing: border-box;
 }
 
 .el-date-editor {
@@ -88,6 +117,7 @@ img {
 }
 
 .myTable td {
+    border-color: rgb(235, 238, 245);
     border-top: none;
     border-right: none;
     box-sizing: border-box;
@@ -110,4 +140,7 @@ img {
     font-size: 14px;
     text-align: left;
     color: #606266;
+}
+.my-print-input {
+    display: inline-block;
 }

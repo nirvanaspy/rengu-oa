@@ -43,7 +43,7 @@ router.beforeEach((to, from, next) => {
                 }
             }
             // 锁屏界面
-            if(store.getters.lockScreen.isLock && to.path !== '/lockScreen') {
+            if(store.getters.lockScreen.isLock == 0 && to.path !== '/lockScreen') {
                 next({
                     path: '/lockScreen'
                 })

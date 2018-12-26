@@ -95,6 +95,7 @@
                     };
                 u.id = c;
                 u.style.cssText = "position:fixed;top:0;left:0;z-index:" + s.z + ";opacity:" + s.o;
+                // 向目标容器添加画布
                 returnTarget("login-container")[0].appendChild(u);
                 k(), window.onresize = k;
                 window.onmousemove = function(i) {

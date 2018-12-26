@@ -46,15 +46,15 @@
                 <!--<el-form-item label="用户名">
                     <el-input v-model="createFormInfo.username"></el-input>
                 </el-form-item>-->
-                <el-form-item label="选择用户">
-                    <!--<el-select v-model="userId" placeholder="请选择" style="width: 100%;">
+                <!--<el-form-item label="选择用户">
+                    &lt;!&ndash;<el-select v-model="userId" placeholder="请选择" style="width: 100%;">
                         <el-option
                                 v-for="item in userList"
                                 :key="item.id"
                                 :label="item.username"
                                 :value="item.id">
                         </el-option>
-                    </el-select>-->
+                    </el-select>&ndash;&gt;
                     <el-select v-model="userInfo" value-key="id" placeholder="请选择" style="width: 100%;">
                         <el-option
                                 v-for="item in userList"
@@ -63,7 +63,7 @@
                                 :value="item">
                         </el-option>
                     </el-select>
-                </el-form-item>
+                </el-form-item>-->
                 <el-form-item label="备注">
                     <el-input v-model="createFormInfo.description"></el-input>
                 </el-form-item>
@@ -79,9 +79,9 @@
                    :visible.sync="editDialogVisible"
                    width="30%">
             <el-form label-position="left" label-width="80px" :model="formInfo">
-                <el-form-item label="用户名">
+                <!--<el-form-item label="用户名">
                     <el-input v-model="formInfo.username"></el-input>
-                </el-form-item>
+                </el-form-item>-->
                 <el-form-item label="备注">
                     <el-input v-model="formInfo.description"></el-input>
                 </el-form-item>

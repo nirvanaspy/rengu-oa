@@ -2,8 +2,8 @@ import request from '@/utils/request'
 
 export function loginByUsername(data) {
     return request({
-        url: '/SUGAR-AUTHORIZATION-SERVER/oauth/token',
-        // url: '/oauth/token',
+        // url: '/SUGAR-AUTHORIZATION-SERVER/oauth/token',
+        url: '/oauth/token',
         method: 'post',
         auth: {
             username: 'OAUTH_CLIENT_ID',

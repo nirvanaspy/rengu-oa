@@ -53,12 +53,13 @@
                 <div class="xls-info-item"
                      style="flex: 1;display: inline-block;color: #777;font-size: 14px;margin-right: 20px;text-align: left;">
                     <span class="item-name">部门</span>
-                    <el-select v-model="department"></el-select>
+                    <el-select v-model="department" class="my-print-input"></el-select>
                 </div>
                 <div class="xls-info-item item-date"
                      style="flex: 1;display: inline-block;color: #777;font-size: 14px;margin-right: 20px;text-align: center;">
                     <span class="item-name">报销日期</span>
                     <el-date-picker
+                            class="my-print-input"
                             v-model="date"
                             type="date"
                             placeholder="选择日期">
@@ -66,8 +67,8 @@
                 </div>
                 <div class="xls-info-item item-user"
                      style="flex: 1;display: inline-block;color: #777;font-size: 14px;margin-right: 20px;text-align: right;">
-                    <span class="item-name">报销人</span>
-                    <span>{{user}}</span>
+                    <span class="item-name" style="height: 40px;line-height: 40px;display: inline-block;">报销人 </span>
+                    <span style="height: 40px;line-height: 40px;display: inline-block;margin-left: 10px;border-bottom: 1px solid #777;"> {{user}}</span>
                     <!--<el-select v-model="user"></el-select>-->
                 </div>
             </div>
@@ -214,7 +215,15 @@
                 </tr>
                 <tr>
                     <td style="color: #333;">总金额（大写）</td>
-                    <td colspan="5">总金额</td>
+                    <td colspan="5" style="text-align: left;padding-left: 20px;">
+                        <span style="display: inline-block;width: 60px;text-align: right">万</span>
+                        <span style="display: inline-block;width: 60px;text-align: right">仟</span>
+                        <span style="display: inline-block;width: 60px;text-align: right">佰</span>
+                        <span style="display: inline-block;width: 60px;text-align: right">拾</span>
+                        <span style="display: inline-block;width: 60px;text-align: right">元</span>
+                        <span style="display: inline-block;width: 60px;text-align: right">角</span>
+                        <span style="display: inline-block;width: 60px;text-align: right">分</span>
+                    </td>
                 </tr>
                 <tr class="sign">
                     <td>报销人（签章）</td>
@@ -268,10 +277,10 @@
             }
         },
         created() {
-            // this.fetchData()
             this.user = this.$cookies.get('username')
             this.formId = this.$route.params.id
-            this.getFormList()
+            // this.getFormList()
+            this.fetchData()
         },
         methods: {
             formatTime(timestamp) {
@@ -318,62 +327,48 @@
                 })*/
                 this.list = [
                     {
-                        title: '火车票',
-                        classification: '交通',
-                        number: 80,
-                        timestamp: '2018-12-20',
-                        remarks: '只是一条备注'
+                        forUsage: 'aaa',
+                        type: 'bbb',
+                        money: 80,
+                        useTime: '15208099112',
+                        description: ''
                     }, {
-                        title: '火车票',
-                        classification: '交通',
-                        number: 80,
-                        timestamp: '2018-12-20',
-                        remarks: '只是一条备注'
-                    }, {
-                        title: '火车票',
-                        classification: '交通',
-                        number: 80,
-                        timestamp: '2018-12-20',
-                        remarks: '只是一条备注'
-                    },/* {
-                        title: '火车票',
-                        classification: '交通',
-                        number: 80,
-                        timestamp: '2018-12-20',
-                        remarks: '只是一条备注'
-                    }, {
-                        title: '火车票',
-                        classification: '交通',
-                        number: 80,
-                        timestamp: '2018-12-20',
-                        remarks: '只是一条备注'
-                    }, {
-                        title: '火车票',
-                        classification: '交通',
-                        number: 80,
-                        timestamp: '2018-12-20',
-                        remarks: '只是一条备注'
-                    }*/
+                        forUsage: 'aaa',
+                        type: 'bbb',
+                        money: 80,
+                        useTime: '15208099112',
+                        description: ''
+                    },{
+                        forUsage: 'aaa',
+                        type: 'bbb',
+                        money: 80,
+                        useTime: '15208099112',
+                        description: ''
+                    },
                 ]
-                this.list = this.list.map(v => {
-                    this.$set(v, 'edit', false) // https://vuejs.org/v2/guide/reactivity.html
-                    v.originalTitle = v.title //  will be used when user click the cancel botton
-                    v.originalClassification = v.classification
-                    v.originalNumber = v.number
-                    v.originalRemarks = v.remarks
-                    return v
-                })
                 if(this.list.length < 6) {
-                    for(let i = 0; i < 6 - this.list.length; i++) {
+                    for(let i = 0; i < length; i++) {
                         this.list.push({
-                            title: '',
-                            classification: '',
-                            number: 0,
-                            timestamp: '',
-                            remarks: ''
+                            forUsage: '',
+                            type: '',
+                            money: '',
+                            useTime: '',
+                            description: ''
                         })
                     }
                 }
+                this.list = this.list.map(v => {
+                    this.$set(v, 'edit', false) // https://vuejs.org/v2/guide/reactivity.html
+                    v.originalForUsage = v.forUsage //  will be used when user click the cancel botton
+                    v.originalType = v.type
+                    v.originalMoney = v.money
+                    v.originalDescription = v.description
+                    if(v.useTime) {
+                        v.originalUseTime = this.formatTime(v.useTime)
+                        v.useTime = this.formatTime(v.useTime)
+                    }
+                    return v
+                })
                 this.listLoading = false
             },
             handleDownload() {
@@ -446,8 +441,11 @@
                         '    font-size: 14px;\n' +
                         '    margin-right: 20px;\n' +
                         '    text-align: left;\n' +
+                        '}  \n' +
+                        '.xls-info-item input {\n' +
+                        '    border: none;\n' +
+                        '    border-bottom: 1px solid #000;\n' +
                         '}\n' +
-                        '\n' +
                         '.xls-info-item.item-date {\n' +
                         '    text-align: center;\n' +
                         '}\n' +
@@ -455,11 +453,39 @@
                         '.xls-info-item.item-user {\n' +
                         '    text-align: right;\n' +
                         '}\n' +
-                        '\n' +
-                        '.xls-table td {\n' +
-                        '    min-height: 48px !important;\n' +
+                        '#xlsCont {\n' +
+                        '    box-sizing: border-box;\n' +
+                        '    width: 100% !important;\n' +
                         '}\n' +
-                        '\n' +
+                        '.xls-table table {\n' +
+                        '    width: 100% !important;\n' +
+                        '    border-spacing: 0;\n' +
+                        '    border-collapse: collapse;\n' +
+                        '    border: 1px solid rgb(235, 238, 245);\n' +
+                        '    border-right: none;\n' +
+                        '    border-bottom: none;\n' +
+                        '    box-sizing: border-box;\n' +
+                        '}\n' +
+                        '.xls-table th {\n' +
+                        '    border-right: 1px solid rgb(235, 238, 245);\n' +
+                        '    box-sizing: border-box;\n' +
+                        '}\n' +
+                        '.xls-table th .cell {\n' +
+                        '    padding: 0;\n' +
+                        '    box-sizing: border-box;\n' +
+                        '}\n' +
+                        '.xls-table td {\n' +
+                        '    padding: 0;\n' +
+                        '    border-right: 1px solid rgb(235, 238, 245);\n' +
+                        '    border-bottom: 1px solid rgb(235, 238, 245);\n' +
+                        '    min-height: 48px !important;\n' +
+                        '    text-align: center;\n' +
+                        '    box-sizing: border-box;\n' +
+                        '}\n' +
+                        '.xls-table tr {\n' +
+                        '    height: 48px;\n' +
+                        '    box-sizing: border-box;\n' +
+                        '}\n' +
                         '\n' +
                         '.el-date-editor {\n' +
                         '    width: unset;\n' +
@@ -490,6 +516,7 @@
                         '}\n' +
                         '\n' +
                         '.myTable td {\n' +
+                        '    border-color: rgb(235, 238, 245);\n' +
                         '    border-top: none;\n' +
                         '    border-right: none;\n' +
                         '    box-sizing: border-box;\n' +
@@ -512,6 +539,9 @@
                         '    font-size: 14px;\n' +
                         '    text-align: left;\n' +
                         '    color: #606266;\n' +
+                        '}\n' +
+                        '.my-print-input {\n' +
+                        '    display: inline-block;\n' +
                         '}\n',
                     type: 'html',
                     scanStyles: false
@@ -609,8 +639,16 @@
                 let datapost = qs.stringify(data)
                 modifyExpenseForm(this.formId,datapost).then((res) => {
                     this.editXls = false
-                    this.startTime = res.data.startTime
-                    this.endTime = res.data.endTime
+                    if(res.data.startTime) {
+                        this.startTime = this.formatTime(res.data.startTime)
+                    } else {
+                        this.startTime = res.data.startTime
+                    }
+                    if(res.data.endTime) {
+                        this.endTime = this.formatTime(res.data.endTime)
+                    } else {
+                        this.endTime = res.data.endTime
+                    }
                     this.isCatered = res.data.isCatered
                     this.benefitNumber = res.data.benefitNumber
                 })
@@ -723,7 +761,6 @@
             border: 1px solid rgb(235, 238, 245);
             border-top: none;
             box-sizing: border-box;
-            // border-color: rgb(235, 238, 245);
             tr {
                 box-sizing: border-box;
                 border-top: none;
@@ -747,6 +784,7 @@
                 height: 48px;
                 color: #606266;
                 font-size: 14px;
+                border-color: rgb(235, 238, 245);
             }
         }
         .note {
